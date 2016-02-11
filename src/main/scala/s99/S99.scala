@@ -54,4 +54,7 @@ object S99 {
       case (1, e) => e
       case (n, e) => (n ,e)
     }
+
+  def decode[T](ls: List[(Int, T)]): List[T] = 
+    ls.flatMap(x => List.fill(x._1)(x._2))
 }
