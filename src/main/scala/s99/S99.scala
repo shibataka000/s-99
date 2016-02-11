@@ -36,9 +36,6 @@ object S99 {
     case x => List(x)
   }
 
-  def compress[T](ls: List[T]): List[T] = ls match {
-    case Nil => Nil
-    case x :: Nil => x :: Nil
-    case x1 :: x2 :: xs => if (x1 == x2) compress(x2 :: xs) else (x1 :: compress(x2 :: xs))
-  }
+  def compress[T](ls: List[T]): List[T] = 
+    ls.foldRight(List[T]())((a,b) => if (b.isEmpty || a != b.head) (a :: b) else b)
 }
