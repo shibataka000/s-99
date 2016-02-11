@@ -35,4 +35,10 @@ object S99 {
     case xs: List[_] => flatten(xs)
     case x => List(x)
   }
+
+  def compress[T](ls: List[T]): List[T] = ls match {
+    case Nil => Nil
+    case x :: Nil => x :: Nil
+    case x1 :: x2 :: xs => if (x1 == x2) compress(x2 :: xs) else (x1 :: compress(x2 :: xs))
+  }
 }

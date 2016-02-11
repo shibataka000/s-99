@@ -44,4 +44,10 @@ class S99Spec extends Specification {
       S99.flatten(List(List(1, 1), 2, List(3, List(5, 8)))) must beEqualTo(List(1, 1, 2, 3, 5, 8))
     }
   }
+
+  "compress" should {
+    "replace repeated elements with a sinble copy of the element" in {
+      S99.compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List('a, 'b, 'c, 'a, 'd, 'e))
+    }
+  }
 }
