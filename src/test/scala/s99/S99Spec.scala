@@ -32,4 +32,10 @@ class S99Spec extends Specification {
       S99.reverse(List(1, 1, 2, 3, 5, 8)) must beEqualTo(List(8, 5, 3, 2, 1, 1))
     }
   }
+
+  "isPalindrome" should {
+    "Find out whether a list is a palindrome" in {
+      S99.isPalindrome(List(1, 2, 3, 2, 1)) must beEqualTo(true)
+    }
+  }
 }
