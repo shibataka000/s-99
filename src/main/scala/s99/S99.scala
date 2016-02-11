@@ -38,4 +38,9 @@ object S99 {
 
   def compress[T](ls: List[T]): List[T] = 
     ls.foldRight(List[T]())((a,b) => if (b.isEmpty || a != b.head) (a :: b) else b)
+
+  def pack[T](ls: List[Any]): List[Any] = ls match {
+    case Nil => Nil
+    case xs => List.fill(xs.takeWhile(_ == xs.head).size)(xs.head) :: pack(xs.dropWhile(_ == xs.head))
+  }
 }
