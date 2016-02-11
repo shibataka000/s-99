@@ -48,4 +48,10 @@ object S99 {
 
   def encode[T](ls: List[T]): List[(Int, T)] =
     pack(ls).map(xs => (xs.size, xs.head))
+
+  def encodeModified[T](ls: List[T]): List[Any] =
+    encode(ls).map {
+      case (1, e) => e
+      case (n, e) => (n ,e)
+    }
 }

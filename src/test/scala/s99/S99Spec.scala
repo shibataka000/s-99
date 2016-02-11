@@ -63,4 +63,10 @@ class S99Spec extends Specification {
     }
   }
 
+  "encodeModified" should {
+    "transferred only elements with duplicates as (N, E) terms" in {
+      S99.encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e)))
+    }
+  }
+
 }
