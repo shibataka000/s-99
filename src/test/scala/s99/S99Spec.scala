@@ -38,4 +38,10 @@ class S99Spec extends Specification {
       S99.isPalindrome(List(1, 2, 3, 2, 1)) must beEqualTo(true)
     }
   }
+
+  "flatten" should {
+    "Flatten a nested list structure" in {
+      S99.flatten(List(List(1, 1), 2, List(3, List(5, 8)))) must beEqualTo(List(1, 1, 2, 3, 5, 8))
+    }
+  }
 }
