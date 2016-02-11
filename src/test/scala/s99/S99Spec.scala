@@ -56,4 +56,11 @@ class S99Spec extends Specification {
       S99.pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)))
     }
   }
+
+  "encode" should {
+    "encode consecutive duplicates of elements as tuple (N, E) where N is the number of duplicates of the element E" in {
+      S99.encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
+    }
+  }
+
 }

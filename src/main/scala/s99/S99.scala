@@ -45,4 +45,7 @@ object S99 {
       val (l1, l2) = ls span (_ == ls.head)
       l1 :: pack(l2)
     }
+
+  def encode[T](ls: List[T]): List[(Int, T)] =
+    pack(ls).map(xs => (xs.size, xs.head))
 }
