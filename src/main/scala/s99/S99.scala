@@ -67,4 +67,8 @@ object S99 {
 
   def duplicate[T](ls: List[T]): List[T] = 
     ls flatMap (x => List(x, x))
+
+  def duplicateN[T](n: Int, ls: List[T]): List[T] =
+    ls flatMap (x => List.fill(n)(x))
+
 }

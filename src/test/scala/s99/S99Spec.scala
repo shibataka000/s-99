@@ -86,4 +86,10 @@ class S99Spec extends Specification {
       S99.duplicate(List('a, 'b, 'c, 'c, 'd)) must beEqualTo(List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd))
     }
   }
+
+  "duplicateN" should {
+    "duplicate the elements of a list a given number of times" in {
+      S99.duplicateN(3, List('a, 'b, 'c, 'c, 'd)) must beEqualTo(List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd))
+    }
+  }
 }
