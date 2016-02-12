@@ -46,37 +46,37 @@ class S99Spec extends Specification {
   }
 
   "compress" should {
-    "replace repeated elements with a sinble copy of the element" in {
+    "eliminate consecutive duplicates of list elements" in {
       S99.compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List('a, 'b, 'c, 'a, 'd, 'e))
     }
   }
 
   "pack" should {
-    "replace repeated elements in separate sublists" in {
+    "pack consecutive duplicates of list elements into sublists" in {
       S99.pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)))
     }
   }
 
   "encode" should {
-    "encode consecutive duplicates of elements as tuple (N, E) where N is the number of duplicates of the element E" in {
+    "run-length encoding of a list" in {
       S99.encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
     }
   }
 
   "encodeModified" should {
-    "transferred only elements with duplicates as (N, E) terms" in {
+    "modified run-length encoding" in {
       S99.encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e)))
     }
   }
 
   "decode" should {
-    "construct its uncompressed version, given a run-length code list generated as specified in problem P10" in {
+    "decode a run-length encoded list" in {
       S99.decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) must beEqualTo(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     }
   }
 
   "encodeDirect" should {
-    "return run-length encoding data compression method directly" in {
+    "run-length encoding of a list (direct solution)" in {
       S99.encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
     }
   }
