@@ -80,4 +80,10 @@ class S99Spec extends Specification {
       S99.encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) must beEqualTo(List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
     }
   }
+
+  "duplicate" should {
+    "duplicate the elements of a list" in {
+      S99.duplicate(List('a, 'b, 'c, 'c, 'd)) must beEqualTo(List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd))
+    }
+  }
 }

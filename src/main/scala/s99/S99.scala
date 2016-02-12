@@ -65,4 +65,6 @@ object S99 {
       (l1.size, l1.head) :: encodeDirect(l2)
     }
 
+  def duplicate[T](ls: List[T]): List[T] = 
+    ls flatMap (x => List(x, x))
 }
