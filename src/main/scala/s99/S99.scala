@@ -57,4 +57,12 @@ object S99 {
 
   def decode[T](ls: List[(Int, T)]): List[T] = 
     ls.flatMap(x => List.fill(x._1)(x._2))
+
+  def encodeDirect[T](ls: List[T]): List[(Int, T)] = 
+    if (ls.isEmpty) Nil
+    else {
+      val (l1, l2) = ls span (_ == ls.head)
+      (l1.size, l1.head) :: encodeDirect(l2)
+    }
+
 }
