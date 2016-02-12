@@ -74,4 +74,10 @@ object S99 {
   def drop[T](n: Int, ls: List[T]): List[T] =
     ls.zipWithIndex.filter(x => (x._2 + 1) % n != 0).map(x => x._1)
 
+  def split[T](n: Int, ls: List[T]): (List[T], List[T]) = (n, ls) match {
+    case (0, _) => (Nil, ls)
+    case (n, ls) =>
+      val (pre, post) = split(n - 1, ls.tail)
+      (ls.head :: pre, post)
+  }
 }
