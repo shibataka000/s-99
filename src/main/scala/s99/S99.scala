@@ -71,4 +71,7 @@ object S99 {
   def duplicateN[T](n: Int, ls: List[T]): List[T] =
     ls flatMap (x => List.fill(n)(x))
 
+  def drop[T](n: Int, ls: List[T]): List[T] =
+    ls.zipWithIndex.filter(x => (x._2 + 1) % n != 0).map(x => x._1)
+
 }
