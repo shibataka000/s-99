@@ -1,5 +1,7 @@
 package s99
 
+import scala.util.Random
+
 object S99 {
   def last[T](ls: List[T]): T = ls match {
     case x :: Nil => x
@@ -117,4 +119,11 @@ object S99 {
   def range(start: Int, end: Int): List[Int] = 
     if (start == end) List(end)
     else start :: range(start + 1, end)
+
+  def randomSelect[T](n: Int, ls: List[T]): List[T] = 
+    if (n == 0) Nil
+    else {
+      val (rest, e) = removeAt(Random.nextInt(ls.size), ls)
+      e :: randomSelect(n - 1, rest)
+    }
 }

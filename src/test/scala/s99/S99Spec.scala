@@ -137,4 +137,12 @@ class S99Spec extends Specification {
       S99.range(4, 9) must beEqualTo(List(4, 5, 6, 7, 8, 9))
     }
   }
+
+  "randomSelect" should {
+    "extract a given number of randomly selected elements from a list" in {
+      val selectedList = S99.randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h))
+      selectedList.size must beEqualTo(3)
+      selectedList.forall(List('a, 'b, 'c, 'd, 'f, 'g, 'h).contains(_))
+    }
+  }
 }
