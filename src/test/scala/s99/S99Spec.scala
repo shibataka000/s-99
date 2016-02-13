@@ -102,6 +102,8 @@ class S99Spec extends Specification {
   "split" should {
     "split a list into two parts" in {
       S99.split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) must beEqualTo((List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k)))
+      S99.split(2, List('a, 'b)) must beEqualTo((List('a, 'b),Nil))
+      S99.split(-2, List('a, 'b)) must throwA[Exception]
     }
   }
 
