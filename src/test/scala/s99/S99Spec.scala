@@ -145,4 +145,13 @@ class S99Spec extends Specification {
       selectedList.forall(List('a, 'b, 'c, 'd, 'f, 'g, 'h).contains(_))
     }
   }
+
+  "lotto" should {
+    "draw N different random numbers from the set 1 .. M" in {
+      val ls = S99.lotto(6, 49)
+      ls.size must beEqualTo(6)
+      ls.distinct.size must beEqualTo(6)
+      ls.forall(x => x <= 49 && x >= 1)
+    }
+  }
 }

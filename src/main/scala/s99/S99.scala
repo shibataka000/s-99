@@ -126,4 +126,6 @@ object S99 {
       val (rest, e) = removeAt(Random.nextInt(ls.size), ls)
       e :: randomSelect(n - 1, rest)
     }
+
+  def lotto(size: Int, max: Int): List[Int] = randomSelect(size, range(1, max))
 }
