@@ -89,4 +89,13 @@ object S99 {
     case (0, m, xs) => xs.head :: slice(0, m - 1, xs.tail)
     case (n, m, xs) => slice(n - 1, m - 1, xs.tail)
   }
+
+  def rotate[T](n: Int, ls: List[T]): List[T] = {
+    if (n < 0) rotate(n + ls.size, ls)
+    else {
+      val m = n % ls.size
+      val (pre, post) = split(m, ls)
+      post ::: pre
+    }
+  }
 }
