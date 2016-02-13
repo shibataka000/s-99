@@ -125,4 +125,10 @@ class S99Spec extends Specification {
       S99.removeAt(1, List('a, 'b, 'c, 'd)) must beEqualTo((List('a, 'c, 'd),'b))
     }
   }
+
+  "insertAt" should {
+    "insert an element at a given position into a list" in {
+      S99.insertAt('new, 1, List('a, 'b, 'c, 'd)) must beEqualTo(List('a, 'new, 'b, 'c, 'd))
+    }
+  }
 }

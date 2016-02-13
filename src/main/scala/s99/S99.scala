@@ -107,4 +107,10 @@ object S99 {
       (x :: ys, y)
     }
   }
+
+  def insertAt[T](e: T, pos: Int, ls: List[T]): List[T] = (pos, ls) match {
+    case (_, Nil) => throw new Exception
+    case (0, xs) => e :: xs
+    case (n, x::xs) => x :: insertAt(e, n - 1, xs)
+  }
 }
