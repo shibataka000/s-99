@@ -164,4 +164,11 @@ class S99Spec extends Specification {
       (ls2 diff ls1).isEmpty must beEqualTo(true)
     }
   }
+
+  "combination" should {
+    "generate the combinations of K distinct objects chosen from the N elements of a list" in {
+      S99.combination(2, List('a, 'b, 'c)) must beEqualTo(List(List('a, 'b), List('a, 'c), List('b, 'c)))
+      S99.combination(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l)).size must beEqualTo(220)
+    }
+  }
 }

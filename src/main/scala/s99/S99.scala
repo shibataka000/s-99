@@ -130,4 +130,10 @@ object S99 {
   def lotto(size: Int, max: Int): List[Int] = randomSelect(size, range(1, max))
 
   def randomPermute[T](ls: List[T]): List[T] = randomSelect(ls.size, ls)
+
+  def combination[T](size: Int, list: List[T]): List[List[T]] = (size, list) match {
+    case (0, ls) => List(Nil)
+    case (_, Nil) => Nil
+    case (n, ls) => combination(n - 1, ls.tail).map(ls.head :: _) ::: combination(n, ls.tail)
+  }
 }
