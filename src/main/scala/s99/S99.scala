@@ -98,4 +98,13 @@ object S99 {
       post ::: pre
     }
   }
+
+  def removeAt[T](n: Int, ls: List[T]): (List[T], T) = (n, ls) match {
+    case (_, Nil) => throw new Exception
+    case (0, (x::xs)) => (xs, x)
+    case (m, (x::xs)) => {
+      val (ys, y) = removeAt(m - 1, xs)
+      (x :: ys, y)
+    }
+  }
 }

@@ -119,4 +119,10 @@ class S99Spec extends Specification {
       S99.rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) must beEqualTo(List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i))
     }
   }
+
+  "removeAt" should {
+    "remove the Kth element from a list" in {
+      S99.removeAt(1, List('a, 'b, 'c, 'd)) must beEqualTo((List('a, 'c, 'd),'b))
+    }
+  }
 }
