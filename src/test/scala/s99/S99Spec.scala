@@ -154,4 +154,14 @@ class S99Spec extends Specification {
       ls.forall(x => x <= 49 && x >= 1)
     }
   }
+
+  "randomPermute" should {
+    "generate a random permutation of the elements of a list" in {
+      val ls1 = List('a, 'b, 'c, 'd, 'e, 'f)
+      val ls2 = S99.randomPermute(ls1)
+      ls1.size must beEqualTo(ls2.size)
+      (ls1 diff ls2).isEmpty must beEqualTo(true)
+      (ls2 diff ls1).isEmpty must beEqualTo(true)
+    }
+  }
 }

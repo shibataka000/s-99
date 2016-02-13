@@ -128,4 +128,6 @@ object S99 {
     }
 
   def lotto(size: Int, max: Int): List[Int] = randomSelect(size, range(1, max))
+
+  def randomPermute[T](ls: List[T]): List[T] = randomSelect(ls.size, ls)
 }
