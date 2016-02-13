@@ -80,4 +80,10 @@ object S99 {
       val (pre, post) = split(n - 1, ls.tail)
       (ls.head :: pre, post)
   }
+
+  def slice[T](from: Int, to: Int, ls: List[T]): List[T] = (from, to, ls) match {
+    case (0, 0, _) => Nil
+    case (0, m, xs) => xs.head :: slice(0, m - 1, xs.tail)
+    case (n, m, xs) => slice(n - 1, m - 1, xs.tail)
+  }
 }
