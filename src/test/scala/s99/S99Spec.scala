@@ -131,4 +131,10 @@ class S99Spec extends Specification {
       S99.insertAt('new, 1, List('a, 'b, 'c, 'd)) must beEqualTo(List('a, 'new, 'b, 'c, 'd))
     }
   }
+
+  "range" should {
+    "create a list containing all integers within a given range" in {
+      S99.range(4, 9) must beEqualTo(List(4, 5, 6, 7, 8, 9))
+    }
+  }
 }

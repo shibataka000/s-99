@@ -113,4 +113,8 @@ object S99 {
     case (0, xs) => e :: xs
     case (n, x::xs) => x :: insertAt(e, n - 1, xs)
   }
+
+  def range(start: Int, end: Int): List[Int] = 
+    if (start == end) List(end)
+    else start :: range(start + 1, end)
 }
