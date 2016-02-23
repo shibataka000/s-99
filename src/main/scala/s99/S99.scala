@@ -136,4 +136,10 @@ object S99 {
     case (_, Nil) => Nil
     case (n, ls) => combination(n - 1, ls.tail).map(ls.head :: _) ::: combination(n, ls.tail)
   }
+
+  def group3[T](ls: List[T]): List[List[List[T]]] = group(List(2, 3, 4), ls)
+
+  def group[T](ns: List[Int], ls: List[T]): List[List[List[T]]] =
+    if (ns == Nil) List(Nil)
+    else combination(ns.head, ls) flatMap (g => group(ns.tail, ls diff g) map (g :: _))
 }

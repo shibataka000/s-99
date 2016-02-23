@@ -171,4 +171,15 @@ class S99Spec extends Specification {
       S99.combination(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l)).size must beEqualTo(220)
     }
   }
+
+  "group" should {
+    "group the elements of a set into disjoint subsets" in {
+      val expect = List(
+        List(List('a, 'b), List('c)),
+        List(List('a, 'c), List('b)),
+        List(List('b, 'c), List('a))
+      )
+      S99.group(List(2, 1), List('a, 'b, 'c)) must beEqualTo(expect)
+    }
+  }
 }
