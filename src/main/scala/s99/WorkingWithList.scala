@@ -2,7 +2,7 @@ package s99
 
 import scala.util.Random
 
-object S99 {
+object WorkingWithList {
   def last[T](ls: List[T]): T = ls match {
     case x :: Nil => x
     case x :: xs => last(xs)
