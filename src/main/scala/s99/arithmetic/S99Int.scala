@@ -1,5 +1,7 @@
 package s99.arithmetic
 
+import s99.workingWithList.WorkingWithList
+
 class S99Int(val start: Int) {
   import S99Int._
 
@@ -17,6 +19,9 @@ class S99Int(val start: Int) {
     if (start == 1) List(1)
     else helper(start, primes)
   }
+
+  def primeFactorMultiplicity(): List[(Int, Int)] = 
+    WorkingWithList.encode(start.primeFactors.sorted).map(_.swap)
 }
 
 object S99Int {
