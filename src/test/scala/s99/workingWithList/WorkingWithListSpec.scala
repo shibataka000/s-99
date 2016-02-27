@@ -1,4 +1,4 @@
-package s99
+package s99.workingWithList
 
 import org.specs2.mutable.Specification
 
