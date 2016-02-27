@@ -33,4 +33,10 @@ class S99IntSpec extends Specification {
       10.totient must beEqualTo(4)
     }
   }
+
+  "primeFactors" should {
+    "Determine the prime factors of a given positive integer" in {
+      315.primeFactors must beEqualTo(List(3, 3, 5, 7))
+    }
+  }
 }

@@ -8,6 +8,15 @@ class S99Int(val start: Int) {
   def isCoprimeTo(n: Int): Boolean = gcd(start, n) == 1
 
   def totient(): Int = (1 to start).count(this.isCoprimeTo(_))
+
+  def primeFactors(): List[Int] = {
+    def helper(a: Int, ps: Stream[Int]): List[Int] = 
+      if (a == 1) Nil
+      else if (a % ps.head == 0) ps.head :: helper(a / ps.head, ps)
+      else helper(a, ps.tail)
+    if (start == 1) List(1)
+    else helper(start, primes)
+  }
 }
 
 object S99Int {
