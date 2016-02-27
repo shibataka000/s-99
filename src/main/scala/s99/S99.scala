@@ -142,4 +142,11 @@ object S99 {
   def group[T](ns: List[Int], ls: List[T]): List[List[List[T]]] =
     if (ns == Nil) List(Nil)
     else combination(ns.head, ls) flatMap (g => group(ns.tail, ls diff g) map (g :: _))
+
+  def lsort[T](ls: List[List[T]]): List[List[T]] = ls.sortBy(_.length)
+
+  def lsortFreq[A](ls: List[List[A]]): List[List[A]] = {
+    val freqs = Map(encode(ls.map(_.length).sorted).map(_.swap): _*)
+    ls.sortBy(x => freqs(x.length))
+  }
 }

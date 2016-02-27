@@ -182,4 +182,20 @@ class S99Spec extends Specification {
       S99.group(List(2, 1), List('a, 'b, 'c)) must beEqualTo(expect)
     }
   }
+
+  "lsort" should {
+    "sorting a list of lists according to length of sublists" in {
+      val l1 = List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))
+      val l2 = List(List('o), List('d, 'e), List('d, 'e), List('m, 'n), List('a, 'b, 'c), List('f, 'g, 'h), List('i, 'j, 'k, 'l))
+      S99.lsort(l1) must beEqualTo(l2)
+    }
+  }
+
+  "lsortFreq" should {
+    "sorting a list of lists according to length of sublists" in {
+      val l1 = List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))
+      val l2 = List(List('i, 'j, 'k, 'l), List('o), List('a, 'b, 'c), List('f, 'g, 'h), List('d, 'e), List('d, 'e), List('m, 'n))
+      S99.lsortFreq(l1) must beEqualTo(l2)
+    }
+  }
 }
