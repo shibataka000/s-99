@@ -17,6 +17,7 @@ class S99IntSpec extends Specification {
   "gcd" should {
     "Determine the greatest common divisor of two positive integer numbers" in {
       gcd(36, 63) must beEqualTo(9)
+      gcd(63, 36) must beEqualTo(9)
     }
   }
 
