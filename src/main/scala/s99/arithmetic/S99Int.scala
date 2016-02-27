@@ -9,9 +9,5 @@ class S99Int(val start: Int) {
 object S99Int {
   implicit def int2S99Int(i: Int): S99Int = new S99Int(i)
 
-  def gcd(a: Int, b: Int): Int = (a, b) match {
-    case (x, y) if x < y => gcd(y, x)
-    case (x, y) if y == 0 => x
-    case (x, y) => gcd(y, x % y)
-  }
+  def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
 }
