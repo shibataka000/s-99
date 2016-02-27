@@ -27,4 +27,10 @@ class S99IntSpec extends Specification {
       36.isCoprimeTo(63) must beEqualTo(false)
     }
   }
+
+  "totient" should {
+    "Calculate Euler's totient function phi(m)" in {
+      10.totient must beEqualTo(4)
+    }
+  }
 }
