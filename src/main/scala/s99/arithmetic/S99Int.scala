@@ -4,6 +4,8 @@ class S99Int(val start: Int) {
   import S99Int._
 
   def isPrime(): Boolean = start > 1 && (2 to (start - 1)).forall(start % _ != 0)
+
+  def isCoprimeTo(n: Int): Boolean = gcd(start, n) == 1
 }
 
 object S99Int {

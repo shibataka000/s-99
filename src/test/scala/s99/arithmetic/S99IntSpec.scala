@@ -19,4 +19,11 @@ class S99IntSpec extends Specification {
       gcd(36, 63) must beEqualTo(9)
     }
   }
+
+  "isCoprimeTo" should {
+    "Determine whether two positive integer numbers are coprime" in {
+      35.isCoprimeTo(64) must beEqualTo(true)
+      36.isCoprimeTo(63) must beEqualTo(false)
+    }
+  }
 }
