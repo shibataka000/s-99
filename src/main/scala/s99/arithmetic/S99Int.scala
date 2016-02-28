@@ -9,9 +9,13 @@ class S99Int(val start: Int) {
 
   def isCoprimeTo(n: Int): Boolean = gcd(start, n) == 1
 
-  def totient(): Int = start.primeFactorMultiplicity.map{
+  def totientP34(): Int = (1 to start).count(this.isCoprimeTo(_))
+
+  def totientP37(): Int = start.primeFactorMultiplicity.map{
     case (p, m) => (p - 1) * math.pow(p, m - 1).toInt
   }.product
+
+  def totient(): Int = totientP37
 
   def primeFactors(): List[Int] = {
     def helper(a: Int, ps: Stream[Int]): List[Int] = 
