@@ -45,4 +45,16 @@ class S99IntSpec extends Specification {
       315.primeFactorMultiplicity must beEqualTo(List((3,2), (5,1), (7,1)))
     }
   }
+
+  "listPrimesinRange" should {
+    "A list of prime numbers" in {
+      listPrimesinRange(7 to 31) must beEqualTo(List(7, 11, 13, 17, 19, 23, 29, 31))
+    }
+  }
+
+  "goldbach" should {
+    "Goldbach's conjecture" in {
+      28.goldbach must beEqualTo((5, 23))
+    }
+  }
 }

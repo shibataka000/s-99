@@ -28,6 +28,11 @@ class S99Int(val start: Int) {
 
   def primeFactorMultiplicity(): List[(Int, Int)] = 
     WorkingWithList.encode(start.primeFactors.sorted).map(_.swap)
+
+  def goldbach(): (Int, Int) = primes.find(x => (start - x).isPrime) match {
+    case None => throw new Exception
+    case Some(x) => (x, start - x)
+  }
 }
 
 object S99Int {
@@ -40,4 +45,6 @@ object S99Int {
   }
 
   def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+
+  def listPrimesinRange(r: Range): List[Int] = primes.dropWhile(_ < r.head).takeWhile(_ <= r.last).toList
 }
